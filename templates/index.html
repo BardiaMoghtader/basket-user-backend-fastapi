@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+              border: 0;
+              margin: 0;
+              padding: 0;
+              font-family: sans-serif;
+              background-color: rgba(250, 250, 250)
+            }
+            
+            .container {
+              min-height: 100vh;
+              justify-content: center;
+              align-items: center;
+              display: flex;
+              text-align: center;
+            }
+            
+            .container div > p span {
+              color: red;
+            }
+            
+            h1 {
+              position: relative;
+              top: 30px;
+            }
+            
+            h1 p {
+              color: black;
+              text-decoration: none;
+              padding-bottom: 50px;
+            }
+            
+            button {
+              cursor: pointer;
+              border: 0;
+              border-radius: 4px;
+              font-weight: 600;
+              margin: 0 10px;
+              width: 200px;
+              padding: 10px 0;
+              box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+              transition: 0.4s;
+            }
+            
+            .reg {
+              color: white;
+              background-color: rgba(104, 85, 224, 1);
+            }
+            
+            .log {
+              color: rgb(104, 85, 224);
+              background-color: rgba(255, 255, 255, 1);
+              border: 1px solid rgba(104, 85, 224, 1);
+            }
+            
+            button:hover {
+              color: white;
+              /* width:; */
+              box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+              background-color: rgba(104, 85, 224, 1);
+            }
+            
+            </style>
+    </head>
+    <body>
+            <div class="container">
+              <div>
+                <h1><p>Welcome!</p></h1>
+                <a href="./login"><button class="log">Login</button></a>
+                <a href="./signup"><button class="reg">Sign up</button></a>
+              </div>
+            </div>
+    </body>
+</html>

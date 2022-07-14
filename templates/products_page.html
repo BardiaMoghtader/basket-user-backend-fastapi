@@ -1,0 +1,118 @@
+    <style>
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+button {
+    width: 200px;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+}
+
+.button-box-special {
+    background: #383b3a;
+}
+
+button:focus {
+    outline: none;
+}
+
+
+.twenty-one {
+    background: #fff;
+    color: royalblue;
+    border: 2px solid royalblue;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    transition: color 400ms;
+}
+
+.twenty-one::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: royalblue;
+    z-index: -1;
+    transition: transform 400ms ease-out;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.twenty-one:hover::before {
+   transform: scaleX(1);
+}
+
+.twenty-one:hover {
+    color: #fff;
+}
+
+/* Layout */
+
+.layout {
+    max-width: 900px;
+    margin: 0 auto;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.button-box,
+.button-box-special {
+    width: 250px;
+    height: 150px;
+    /* border: 1px solid black; */
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    </style>
+    <link href="{{ url_for('static', path='/style_user_cart.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+    <a style="position: fixed; top: 10; left: 10;" href="/user/{{user}}" class="linkPreviousPage round">&#8249;</a>
+    <section class="hero-section">
+      <div class="card-grid">
+        <div class="container">
+          {% for i in  items %}
+          <div class="product-card">
+            <form style="margin: 0;" action="/addToCart/{{i.name}}" method="post">
+              <div class="product-img img-one"></div>
+              <div class="product-text">
+                <h3>{{ i.name }}</h3>
+                <p> price of the product: {{ i.price }}</p>
+              </div>
+              <div class="product-cart">
+                <button type="submit">
+                    <span>Add to Cart</span>
+                </button>
+              </div>
+            </form>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <br/>
+    <div style="display: block; position: fixed; bottom: 10px;" class="">
+        <div class="button-box">
+            <a style="display: block; padding: 0;" href="/user/{{user}}/cart"><button class="twenty-one"><span>Proceed to Purchase</span></button></a>
+        </div> 
+    </div> 

@@ -1,0 +1,79 @@
+
+    <link href="{{ url_for('static', path='/style_user_cart.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    
+    {% if error is not none %}
+      <ul style="position: absolute; top: 0px; left: 0px; color: red;">
+        <li>{{error}}</li>
+      </ul>
+    {% endif %}
+    <a style="position: fixed; top: 10; left: 10;" href="/user/{{name}}" class="linkPreviousPage round">&#8249;</a>
+    <section class="hero-section">
+      <div class="card-grid">
+        <div class="container">
+          {% for i in  cart %}
+          <div class="product-card">
+            <form style="margin: 0;" action="/update/{{i.name}}" method="post">
+              <div class="product-img img-one"></div>
+              <div class="product-text">
+                <h3>{{ i.name }}</h3>
+                <p> Price of the Product: {{ i.price }}</p>
+                <p> Current Quantity: {{ i.quantity }}</p>
+                <p> Total Price: {{ i.price * i.quantity}} </p>
+                <p> New Quantity: 
+                  <input style="width: 50px;" name="{{i.name}}" type="number" pattern="[0-9]+" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '1');">
+                  <label for="{{i.name}}"></label>
+                </p>
+              </div>
+              <div class="product-cart">
+                <button type="submit">
+                    <span>Update</span>
+                </button>
+              </div>
+            </form>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>  
+
+    <div class="purchase-container">
+      <div style="bottom: 65; position: relative; color:aliceblue" class="row">
+        <div class="col-md-12 text-center">
+          <p class="animate-charcter"> Total Price: {{total}}</p>
+        </div>
+      </div>
+      
+      <form method="post" action="/user/{{name}}/purchase" class="inline">
+        <input type="hidden" name="extra_submit_param" value="extra_submit_value">
+        <button type="submit" name="submit_param" value="submit_value" class="link-button"></button>
+          <div class="purchase center">
+            <a href="#" onclick="this.parentNode.parentNode.submit()"><span data-attr="Buy">Buy</span><span data-attr="Now">Now</span>
+              </form>
+            </a>
+          </div>
+    </div>
+    
+        
+        <!-- <a class="card" href="#">
+          <div class="card__background" style="width: 200px; height:400px; background-image: url(https://images.unsplash.com/photo-1557187666-4fd70cf76254?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
+          <div class="card__content">
+            <p class="card__category">Category</p>
+            <h3 class="card__heading">Example Card Heading</h3>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="card__background" style="width: 200px; height:400px;background-image: url(https://images.unsplash.com/photo-1556680262-9990363a3e6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
+          <div class="card__content">
+            <p class="card__category">Category</p>
+            <h3 class="card__heading">Example Card Heading</h3>
+          </div>
+        </li>
+        <a class="card" href="#">
+          <div class="card__background" style="width: 200px; height:400px; background-image: url(https://images.unsplash.com/photo-1557004396-66e4174d7bf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
+          <div class="card__content">
+            <p class="card__category">Category</p>
+            <h3 class="card__heading">Example Card Heading</h3>
+          </div>
+        </a> -->
+
