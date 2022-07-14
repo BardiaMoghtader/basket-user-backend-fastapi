@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <style>
+        img.avatar {
+          clip-path: circle(); 
+          align-content: center;
+          width: 250px;
+          height: auto;
+            }
+
+        div.circletag {
+            /* display: block; */
+            width: 250px;
+            /* height: auto;
+            background: #E6E7ED;
+            text-align: center;
+            align-content: center;
+            align-items: center;
+            border-radius: 50%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%; */
+            }
+          html {
+            display: table;
+            margin: auto;
+          }
+          .container {
+              /* display: table-cell; */
+              vertical-align: middle;
+              margin: auto;
+          }
+      </style>
+    </head>
+    <body>
+        <form action="\login" method="post">
+            <div class="imgcontainer circletag">
+              <img src="https://images4.alphacoders.com/958/958080.jpg" alt="Avatar" class="avatar">
+            </div>
+          
+            <div class="container">
+            <label for="username"><b>Username</b></label>
+            </br>
+            <input type="text" placeholder="Enter Username" name="username" required>
+            </br>
+            <label for="password"><b>Password</b></label>
+            </br>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            </br>
+            <button type="submit">Login</button>
+            </div>
+          </form> 
+    </body>
+</html>

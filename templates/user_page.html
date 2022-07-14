@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="{{ url_for('static', path='/user_page.css') }}" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <h3 data-shadow='Welcome'>Welcome</h3>
+        </div>
+        <div>
+            <h3 style="font-size: 5em;" data-shadow={{name}}>{{name}}</h3>
+        </div>
+        <div class="container">
+            <div>
+                <a href="./{{name}}/cart"><button class="log">Go to cart</button></a>
+                <a href="../products"><button class="log">products</button></a>
+            </div> 
+        </div>
+    </body>
+</html>

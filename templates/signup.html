@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="{{ url_for('static', path='/signup.css') }}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="screen">
+                <div class="screen__content">
+                    <form class="login" action="/signup" method="post">
+                        {% for err in error %}
+                            <ul style="color: red">{{err}}</ul>
+                        {% endfor %}
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input name="username" type="text" class="login__input" placeholder="User name / Email"  required>
+                            <label for="username"></label>
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input name="password" type="password" class="login__input" placeholder="Password" required>
+                            <label for="password"></label>
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input name="repeat_password" type="password" class="login__input" placeholder="Repeat Password" required>
+                            <label for="repeat_password"></label>
+                        </div>
+                        <button type="submit" class="button login__submit">
+                            <span class="button__text">Log In Now</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>				
+                    </form>
+                </div>
+                <div class="screen__background">
+                    <span class="screen__background__shape screen__background__shape4"></span>
+                    <span class="screen__background__shape screen__background__shape3"></span>		
+                    <span class="screen__background__shape screen__background__shape2"></span>
+                    <span class="screen__background__shape screen__background__shape1"></span>
+                </div>		
+            </div>
+        </div>
+    </body>
+</html>
