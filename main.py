@@ -258,3 +258,25 @@ async def load_login_webpage():
     # print(response.headers.get(key='cookie'))
     # return response
     # return user
+    
+import sys
+import time
+import uvicorn
+import threading
+import webbrowser
+
+def start_server(port=8000):
+    uvicorn.run(app, port=port, log_level="info", )
+
+if __name__ == "__main__":
+    # thread.start_new_thread(start_server,())
+    url = 'http://127.0.0.1:8000/docs'
+
+    threading.Thread(target=start_server).start()
+    webbrowser.open_new(url)
+
+    while True:
+        try:
+            time.sleep(1)
+        except KeyboardInterrupt:
+            sys.exit(0)
