@@ -161,7 +161,7 @@ async def signup_webpage(request: Request):
 
       token = manager.create_access_token(
           data=dict(sub=newUser['username']),
-          expires=timedelta(minutes=1)
+          expires=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
       )
       response = RedirectResponse(url=f"/user/{newUser['username']}", status_code=status.HTTP_302_FOUND)
       manager.set_cookie(response, token)
